@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import { Route, Link, Switch } from 'react-router-dom';
-import vodafonelogo from '../Images/vodafonelogo.png';
+import logo from '../Images/newVodafone.png';
 /* Importing neccesary components for Routing */
 import Dashboard from '../Components/Dashboard'
 import Album from '../Components/Albums/ListAlbum';
@@ -16,7 +16,7 @@ export default class Routing extends React.Component {
       <div className="container-fluid">
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <Link className="navbar-brand" to="/">
-        <img className="brand" src={vodafonelogo} alt="photoGallery logo" />
+        <img className="brand" src={logo} alt="photoGallery logo" />
       </Link>
 
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,9 +44,9 @@ export default class Routing extends React.Component {
       </nav>
   
     <Switch>
-    <Route path="/" exact component={Dashboard} />
-    <Route path="/Album" exact component={Album} />
-    <Route path="/Photos" exact component={Photos} />
+    <Route exact path="/"  component={Dashboard} />
+    <Route exact path="/Album"  component={Album} />
+    <Route exact path="/Photos"  component={Photos} />
     <Route path="/photos/:id" component={ListPhoto} />
     <Route component={NotFound} />
     </Switch>
