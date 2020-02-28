@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 import { albumsList } from '../../Redux/Actions/albumsList'
 import Album from './Album'
@@ -42,27 +42,23 @@ class ListAlbum extends React.Component {
         var totalAlbums = this.props.albums;
 
         return (
-            <div>
+            <Fragment>
                 {totalAlbums !== undefined && totalAlbums.length > 0 ?
-                    <div>
-                        <div className="w-100 px-4 py-5 d-flex flex-row flex-wrap align-items-center justify-content-between">
-                            <div className="d-flex flex-row py-4 align-items-center">
-                                <Pagination
+                    <Fragment>
+                        <Pagination
                                     totalRecords={totalAlbums.length}
                                     pageLimit={23}
                                     pageNeighbours={1}
                                     onPageChanged={this.onPageChanged}
                                 />
-                            </div>
-                        </div>
                         {currentAlbums.map(albums => (
                             <Album key={albums.id} albums={albums} />
                         ))}
-                    </div>
+                    </Fragment>
                        :
                     <Loader /> 
                 }
-            </div>
+            </Fragment>
         )
     }
 }
